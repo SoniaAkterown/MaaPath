@@ -13,7 +13,9 @@
   <img src="https://img.shields.io/badge/FastAPI-0.115.0-009688?style=flat&logo=fastapi&logoColor=white" alt="FastAPI">
   <img src="https://img.shields.io/badge/LangGraph-0.2.35-1C3C3C?style=flat" alt="LangGraph">
   <img src="https://img.shields.io/badge/LangChain-0.3.10-121212?style=flat" alt="LangChain">
+  <img src="https://img.shields.io/badge/Groq_LLM-Llama_3.3_70B-F55036?style=flat" alt="Groq LLM">
   <img src="https://img.shields.io/badge/Clinical_RAG-WHO_%26_DGHS-0D9488?style=flat" alt="Clinical RAG">
+  <img src="https://img.shields.io/badge/Voice_AI-Bangla_STT_%26_TTS-6366F1?style=flat" alt="Bangla Voice AI">
   <img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL">
   <img src="https://img.shields.io/badge/SQLAlchemy-2.0.35-D71F00?style=flat" alt="SQLAlchemy">
   <img src="https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=flat&logo=supabase&logoColor=white" alt="Supabase">
@@ -47,19 +49,19 @@
 
 # 🩺 MaaPath AI
 
-**MaaPath AI** is not a standard pregnancy tracking app—it is an **AI-Powered Maternal & Newborn Care Coordination System** engineered for Bangladesh. It unites expectant mothers, community health workers (CHWs), and public healthcare facilities (**Upazila Health Complexes & District Hospitals**) through a **LangGraph Multi-Agent Architecture**, bilingual (**English & বাংলা**) Clinical RAG guidance, deterministic danger-sign triage, and automated ANC planning.
+**MaaPath AI** is not a standard pregnancy tracking app—it is an **AI-Powered Maternal & Newborn Care Coordination System** engineered for Bangladesh. It unites expectant mothers, community health workers (CHWs), and public healthcare facilities (**Upazila Health Complexes & District Hospitals**) through a **LangGraph Multi-Agent Architecture**, **Groq LLM (Llama 3.3 70B)** bilingual (**English & বাংলা**) Clinical RAG guidance, **real-time Bangla Voice (Speech-to-Text & Text-to-Speech)**, deterministic danger-sign triage, and automated ANC planning.
 
 > **Live Application:** [https://maapath.onrender.com](https://maapath.onrender.com)  
 > **API Documentation:** [https://maapath.onrender.com/docs](https://maapath.onrender.com/docs)
 
-> ⚠️ **Crucial Medical Disclaimer:** MaaPath AI does **not** diagnose diseases. It provides clinical alerts, educational guidance, and emergency hospital referral pathways strictly aligned with **WHO Antenatal Care (ANC) Guidelines** and **DGHS Bangladesh** maternal health protocols.
+> ⚠️ **Crucial Medical Disclaimer:** MaaPath AI does **not** diagnose diseases and never replaces a licensed physician. It provides clinical alerts, educational guidance, and emergency hospital referral pathways strictly aligned with **WHO Antenatal Care (ANC) Guidelines** and **DGHS Bangladesh** maternal health protocols.
 
 ---
 
 ## 🎯 Core 3-Pillar Strategy
 
 1. **🔮 Predictive Intelligence:** Analyzes maternal vitals (BP, Hemoglobin, Blood Sugar, Weight) and obstetric history to flag potential clinical risks early (e.g., Pre-eclampsia, Gestational Diabetes, Anemia).
-2. **🤖 Agentic Decision Support:** Orchestrates specialized AI agents via **LangGraph** to coordinate ANC checkups, lab tests, and hospital referral pathways.
+2. **🤖 Agentic Decision Support:** Orchestrates specialized AI agents via **LangGraph** and **Groq LLM** to coordinate ANC checkups, lab tests, and hospital referral pathways.
 3. **❤️ Continuity of Care:** Provides end-to-end maternal and newborn tracking from early pregnancy registration through delivery preparation and postnatal **Bangladesh EPI** vaccination follow-ups.
 
 ---
@@ -69,7 +71,7 @@
 MaaPath AI uses a deterministic-first **LangGraph State Machine** so life-threatening danger signs bypass LLM latency and trigger immediate hospital escalation.
 
 ```text
-Mother Registration / Vitals / Bangla-EN Query
+Mother Registration / Vitals / Bangla-EN Text & Voice Query
                       │
                       ▼
             [ 1. Intake Agent ]
@@ -82,28 +84,28 @@ Mother Registration / Vitals / Bangla-EN Query
          ┌────────────┴────────────┐
          │ Emergency Detected?     │ Routine / Safe
          ▼                         ▼
- [ 3. Referral Agent ]     ┌───────┴───────────────┐
- (Immediate Escalation     ▼                       ▼
-  to UHC / District  [ 4. ANC Planning ]   [ 5. Clinical RAG ]
-   Hospital & 999)    (WHO Visit Schedule)  (WHO & DGHS Verified)
+ [ 3. Referral Agent ]     ┌───────┴───────────────────┐
+ (Immediate Escalation     ▼                           ▼
+  to UHC / District  [ 4. ANC Planning ]   [ 5. Groq Clinical RAG ]
+   Hospital & 999)    (WHO Visit Schedule)  (Llama 3.3 + WHO/DGHS)
 ```
 
 ### Specialized Agent Roles
 - **Intake Agent:** Collects demographics, Last Menstrual Period (LMP), blood group, and obstetric history; auto-calculates Expected Delivery Date (EDD).
 - **Risk Screening Agent:** Executes deterministic rule-based screening for 7 critical maternal danger signs (bleeding, severe headache, blurred vision, convulsions, high fever, severe abdominal pain, reduced fetal movement).
 - **ANC Planning Agent:** Organizes WHO-recommended Antenatal Care (ANC) schedules, ultrasound milestones, and IFA/Calcium supplementation reminders.
-- **Clinical RAG Agent:** Answers bilingual (**বাংলা & English**) maternal health queries backed by verified WHO & DGHS citations.
+- **Clinical RAG Agent (Groq Llama 3.3):** Answers bilingual (**বাংলা & English**) maternal health text & voice queries grounded in verified WHO & DGHS guidelines with automatic fallback safety.
 - **Referral Agent:** Matches risk urgency with nearby **Upazila Health Complexes (UHC)** and **District Hospitals**, dispatching structured digital referral slips.
 - **Follow-up & Newborn Care Agents:** Tracks missed appointments, postnatal maternal recovery, and **Bangladesh EPI** immunization schedules.
 
 ---
 
-## ✨ 14 Integrated UI Modules (Bilingual EN / বাংলা + Dark/Light Mode)
+## ✨ 14 Integrated UI Modules (Bilingual EN / বাংলা + Voice AI + Dark/Light Mode)
 
 | Category | Modules Included |
 | :--- | :--- |
 | **A. Mother & Pregnancy Care** | `1. Mother Dashboard` • `2. Mother Registration` • `3. Pregnancy Management` • `4. Health Monitoring` • `5. Risk Assessment` • `6. ANC Planning` |
-| **B. AI, Referral & Newborn** | `7. Bangla Clinical RAG AI Assistant` • `8. Smart Hospital Referral` • `9. Newborn Care & EPI Tracker` |
+| **B. AI, Referral & Newborn** | `7. Bangla Clinical RAG & Voice AI Assistant` • `8. Smart Hospital Referral` • `9. Newborn Care & EPI Tracker` |
 | **C. Care Team, Admin & Ops** | `10. Health Worker Dashboard` • `11. Admin Dashboard` • `12. AI Agent Monitoring (Human-in-the-Loop)` |
 | **D. Alerts & Preferences** | `13. Notification Center` • `14. Settings & Language` + **Global Emergency SOS Modal (999 & 16263)** |
 
@@ -112,7 +114,8 @@ Mother Registration / Vitals / Bangla-EN Query
 ## 🛠️ Technology Stack & Versions
 
 - **Backend:** Python `3.11+`, FastAPI `0.115.0`, Uvicorn `0.30.6`, Pydantic `2.9.2`
-- **Multi-Agent AI:** LangGraph `0.2.35`, LangChain Core `0.3.10`, Verified Clinical RAG
+- **Multi-Agent AI & LLM:** LangGraph `0.2.35`, LangChain Core `0.3.10`, **Groq API (`groq==0.11.0`, `llama-3.3-70b-versatile`)**, Verified WHO & DGHS Clinical RAG
+- **Voice Interface:** Browser Web Speech API — Real-time **Bangla (`bn-BD`) & English (`en-US`) Speech-to-Text (STT)** and **Text-to-Speech (TTS)** audio responses
 - **Database:** PostgreSQL (**Supabase Session Pooler**), SQLAlchemy `2.0.35`, `psycopg2-binary` (with automatic local SQLite fallback)
 - **Frontend:** Responsive SPA built with HTML5, Tailwind CSS, Vanilla JavaScript, FontAwesome 6, and Google Fonts (*Inter* & *Hind Siliguri*)
 - **Cloud Deployment:** Render Web Service ([maapath.onrender.com](https://maapath.onrender.com))
@@ -126,11 +129,11 @@ MaaPath/
 ├── backend/
 │   ├── main.py             # FastAPI server, REST APIs & frontend serving
 │   ├── agents.py           # LangGraph multi-agent workflow & conditional routing
-│   ├── clinical_rag.py     # Verified WHO & DGHS bilingual clinical knowledge base
+│   ├── clinical_rag.py     # Groq Llama 3.3 Clinical RAG + verified WHO & DGHS context
 │   ├── database.py         # SQLAlchemy models (Mother, VitalLog, ANCVisit, Referral)
-│   └── requirements.txt    # Python dependencies
+│   └── requirements.txt    # Python dependencies (FastAPI, LangGraph, Groq, SQLAlchemy)
 ├── frontend/
-│   └── index.html          # Complete 14-module bilingual responsive UI + Pregnancy Guide
+│   └── index.html          # Complete 14-module bilingual UI + Voice AI + Pregnancy Guide
 └── README.md
 ```
 
@@ -155,12 +158,13 @@ MaaPath/
    pip install -r requirements.txt
    ```
 
-3. **Configure Environment Variables (Optional for Local)**
+3. **Configure Environment Variables**
    Create a `.env` file inside `backend/`:
    ```env
+   GROQ_API_KEY=gsk_your_groq_api_key_here
    DATABASE_URL=postgresql://postgres.[PROJECT-REF]:[PASSWORD]@[aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres](https://aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres)
    ```
-   *(If omitted, MaaPath AI automatically uses local SQLite `maapath.db`.)*
+   *(If `DATABASE_URL` is omitted, MaaPath AI automatically uses local SQLite `maapath.db`. If `GROQ_API_KEY` is omitted, it falls back to local verified WHO/DGHS responses.)*
 
 4. **Start the FastAPI + LangGraph server**
    ```bash
@@ -178,12 +182,14 @@ Test the end-to-end clinical workflow directly on [maapath.onrender.com](https:/
 1. **Bilingual & Theme Switch:** Toggle between **EN / বাংলা** and **Dark / Light Mode** from the top navbar to experience instant localization across all 14 modules.
 2. **Smart Mother Registration (`Intake Agent`):** Click **"Register a Mother"**, enter an LMP date, and watch the live **EDD & Pregnancy Week** calculate automatically. Submit to persist the record in **Supabase PostgreSQL**.
 3. **Deterministic Danger-Sign Triage (`Risk Screening Agent`):** Open **Module 5 (Risk Assessment)** and check any danger sign (e.g., *Severe Headache* or *Blurred Vision*) to trigger the immediate **HIGH EMERGENCY RISK** escalation banner.
-4. **Bangla Clinical RAG (`AI Assistant`):** Open **Module 7 (AI Assistant)** and ask *"মাথা ব্যথা ও ঝাপসা দেখলে কী করব?"* (emergency bypass) or *"আয়রন ও ক্যালসিয়াম কীভাবে খাব?"* (WHO/DGHS cited response).
+4. **Bangla Voice & Groq Clinical RAG (`AI Assistant`):** Open **Module 7 (AI Assistant)**, click the **🎙️ Microphone button** to speak in Bangla or type *"মাথা ব্যথা ও ঝাপসা দেখলে কী করব?"* (emergency bypass) or *"আয়রন ও ক্যালসিয়াম কীভাবে খাব?"* to receive a **Groq Llama 3.3** WHO/DGHS-cited response read aloud via **Text-to-Speech**.
 5. **Smart Hospital Referral (`Referral Agent`):** Open **Module 8**, filter between **Upazila Health Complexes** and **District Hospitals**, and dispatch a Digital Referral Slip.
 
 ---
 
-## 📜 Security Policy
+## 📜 Security & Clinical Safety Policy
 
 This project is open-source and structured for healthcare safety and transparency.
+
 - 🛡️ **Emergency Helplines (Bangladesh):** Integrated quick-dial support for **999** (National Emergency Service) and **16263** (Shastho Batayon 24/7 Health Line).
+- 🩺 **Human-in-the-Loop & Clinical Guardrails:** Deterministic danger-sign override ensures critical symptoms never wait on LLM generation; AI guidance is strictly educational and never replaces a licensed physician.
