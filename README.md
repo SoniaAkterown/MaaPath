@@ -8,17 +8,17 @@
 
 <p align="center">
   <img src="https://img.shields.io/github/stars/SoniaAkterown/MaaPath?style=flat&logo=github&color=yellow" alt="Stars">
-  <img src="https://komarev.com/ghpvc/?username=SoniaAkterown&repo=MaaPath&label=views&color=blue&style=flat" alt="Views">
+  <img src="https://komarev.com/ghpvc/?username=SoniaAkterown-MaaPath&label=views&color=blue&style=flat" alt="Views">
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/FastAPI-0.115.0-009688?style=flat&logo=fastapi&logoColor=white" alt="FastAPI">
   <img src="https://img.shields.io/badge/LangGraph-0.2.35-1C3C3C?style=flat" alt="LangGraph">
   <img src="https://img.shields.io/badge/LangChain-0.3.10-121212?style=flat" alt="LangChain">
+  <img src="https://img.shields.io/badge/Clinical_RAG-WHO_%26_DGHS-0D9488?style=flat" alt="Clinical RAG">
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL">
   <img src="https://img.shields.io/badge/SQLAlchemy-2.0.35-D71F00?style=flat" alt="SQLAlchemy">
   <img src="https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=flat&logo=supabase&logoColor=white" alt="Supabase">
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
-  <img src="https://img.shields.io/badge/Uvicorn-0.30.6-499848?style=flat" alt="Uvicorn">
   <img src="https://img.shields.io/badge/Deployed_on-Render-46E3B7?style=flat&logo=render&logoColor=black" alt="Render">
-  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
 </p>
 
 <p align="center">
