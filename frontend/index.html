@@ -2795,7 +2795,7 @@
                     </div>
 
                     <form onsubmit="handleChatSubmit(event)" class="p-2.5 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex items-center gap-2">
-                        <button type="button" onclick="startVoiceInput()" class="w-9 h-9 rounded-xl ${state.isListening ? 'bg-danger-600 text-white animate-pulse' : 'bg-slate-100 dark:bg-slate-800 text-brand-600'} flex items-center justify-center shrink-0">
+                        <button type="button" onclick="simulateVoiceInput()" class="w-9 h-9 rounded-xl ${state.isListening ? 'bg-danger-600 text-white animate-pulse' : 'bg-slate-100 dark:bg-slate-800 text-brand-600'} flex items-center justify-center shrink-0">
                             <i class="fa-solid fa-microphone"></i>
                         </button>
                         <input id="ai-chat-input" type="text" placeholder="${t('Ask a question in Bangla or English...', 'বাংলা বা ইংরেজিতে প্রশ্ন লিখুন...')}" class="flex-1 min-w-0 px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs sm:text-sm outline-none">
