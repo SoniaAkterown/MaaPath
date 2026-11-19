@@ -183,9 +183,7 @@ Test the end-to-end clinical workflow directly on [maapath.onrender.com](https:/
 
 ---
 
-## 📜 License & Security Policy
+## 📜 Security Policy
 
 This project is open-source and structured for healthcare safety and transparency.
-
-- 📄 **License:** Licensed under the **[MIT License](./LICENSE)**.
 - 🛡️ **Emergency Helplines (Bangladesh):** Integrated quick-dial support for **999** (National Emergency Service) and **16263** (Shastho Batayon 24/7 Health Line).
