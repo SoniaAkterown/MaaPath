@@ -2795,7 +2795,7 @@
                     </div>
 
                     <form onsubmit="handleChatSubmit(event)" class="p-2.5 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex items-center gap-2">
-                        <button type="button" onclick="simulateVoiceInput()" class="w-9 h-9 rounded-xl ${state.isListening ? 'bg-danger-600 text-white animate-pulse' : 'bg-slate-100 dark:bg-slate-800 text-brand-600'} flex items-center justify-center shrink-0">
+                        <button type="button" onclick="startVoiceInput()" class="w-9 h-9 rounded-xl ${state.isListening ? 'bg-danger-600 text-white animate-pulse' : 'bg-slate-100 dark:bg-slate-800 text-brand-600'} flex items-center justify-center shrink-0">
                             <i class="fa-solid fa-microphone"></i>
                         </button>
                         <input id="ai-chat-input" type="text" placeholder="${t('Ask a question in Bangla or English...', 'বাংলা বা ইংরেজিতে প্রশ্ন লিখুন...')}" class="flex-1 min-w-0 px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs sm:text-sm outline-none">
@@ -2830,6 +2830,10 @@
                     text: data.reply,
                     citation: data.citation
                 });
+
+                // ✅ এইখানেই AI-এর উত্তর মুখে পড়ে শোনানোর লাইনটি বসবে
+                if (data.reply) speakResponse(data.reply);
+
             } catch (err) {
                 state.chatMessages.push({
                     role: 'ai',
@@ -2844,14 +2848,50 @@
         }
 
         function simulateVoiceInput() {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+                showToast(t('Please use Google Chrome for Voice Input.', 'ভয়েস ইনপুটের জন্য Google Chrome ব্যবহার করুন।'), 'warning');
+                return;
+            }
+
+            const recognition = new SpeechRecognition();
+            recognition.lang = state.lang === 'bn' ? 'bn-BD' : 'en-US';
+            recognition.interimResults = false;
+
             state.isListening = true;
             renderActiveModule();
-            setTimeout(() => {
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
                 state.isListening = false;
-                sendChatMessage('মাথা ব্যথা ও ঝাপসা দেখলে কী করব?');
-            }, 1000);
+                sendChatMessage(transcript);
+            };
+
+            recognition.onerror = () => {
+                state.isListening = false;
+                renderActiveModule();
+            };
+
+            recognition.onend = () => {
+                if (state.isListening) {
+                    state.isListening = false;
+                    renderActiveModule();
+                }
+            };
+
+            recognition.start();
         }
 
+        function speakResponse(text) {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = /[\u0980-\u09FF]/.test(text) ? 'bn-BD' : 'en-US';
+            utterance.rate = 0.95;
+            window.speechSynthesis.speak(utterance);
+        }
+          
+          
         /* --- MODULE 8: SMART HOSPITAL REFERRAL --- */
         function renderModule8Referral() {
             const filtered = state.hospitalFilter === 'all' ? hospitalsData : hospitalsData.filter(h => h.type === state.hospitalFilter);
@@ -3214,6 +3254,44 @@
             const savedLang = localStorage.getItem('maapath-lang') || 'en';
             setLanguage(savedLang);
         });
+        function startVoiceInput() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+        alert("আপনার ব্রাউজার ভয়েস ইনপুট সাপোর্ট করে না। অনুগ্রহ করে Google Chrome ব্যবহার করুন।");
+        return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'bn-BD';
+    recognition.interimResults = false;
+
+    const inputEl = document.getElementById('chat-input');
+    if (inputEl) inputEl.placeholder = "🎙️ শুনছি... বাংলায় বলুন...";
+
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        if (inputEl) {
+            inputEl.value = transcript;
+            inputEl.placeholder = "Ask a question in Bangla or English...";
+        }
+        if (typeof sendChatMessage === 'function') sendChatMessage();
+    };
+
+    recognition.onerror = () => {
+        if (inputEl) inputEl.placeholder = "Ask a question in Bangla or English...";
+    };
+
+    recognition.start();
+}
+
+function speakResponse(text) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = /[\u0980-\u09FF]/.test(text) ? 'bn-BD' : 'en-US';
+    utterance.rate = 0.95;
+    window.speechSynthesis.speak(utterance);
+}
     </script>
 </body>
 </html>
