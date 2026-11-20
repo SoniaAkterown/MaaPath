@@ -59,6 +59,32 @@
 
 ---
 
+## 📸 Platform Screenshots
+
+<details open>
+  <summary><strong>1. Landing Page & Bilingual UI (EN / বাংলা)</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 184031.png" alt="Landing Page" width="90%">
+  </p>
+</details>
+
+<details>
+  <summary><strong>2. Mother Dashboard & Registration (Intake Agent)</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 184554.png" alt="Mother Dashboard" width="90%">
+  </p>
+</details>
+
+<details>
+  <summary><strong>3. Mother Dashboard</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 184740.png" alt="AI Assistant" width="90%">
+  </p>
+</details>
+
 ## 🎯 Core 3-Pillar Strategy
 
 1. **🔮 Predictive Intelligence:** Analyzes maternal vitals (BP, Hemoglobin, Blood Sugar, Weight) and obstetric history to flag potential clinical risks early (e.g., Pre-eclampsia, Gestational Diabetes, Anemia).
