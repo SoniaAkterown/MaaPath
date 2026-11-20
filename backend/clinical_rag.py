@@ -1,26 +1,44 @@
 import os
 from groq import Groq
 
-# Verified WHO & DGHS Bangladesh Clinical Knowledge Base (Grounding Context)
 CLINICAL_KB = """
 1. Iron & Calcium Supplementation (DGHS Bangladesh):
-   - Take 1 Iron-Folic Acid (IFA) tablet and 1 Calcium tablet daily during pregnancy.
-   - Never take Iron and Calcium together; keep at least a 2-hour gap (e.g., Calcium after lunch, Iron after dinner).
+  - Take 1 Iron-Folic Acid (IFA) tablet and 1 Calcium tablet daily during pregnancy.
+  - Never take Iron and Calcium together; keep at least a 2-hour gap (e.g., Calcium after lunch, Iron after dinner).
 2. WHO Antenatal Care (ANC) Schedule:
-   - Minimum 4 to 8 ANC visits: 1st visit before 12 weeks, then at 20, 26, 30, 34, 36, 38, and 40 weeks.
-   - Monitor Blood Pressure, Weight, Urine Protein, and Hemoglobin regularly.
+  - Minimum 4 to 8 ANC visits: 1st visit before 12 weeks, then at 20, 26, 30, 34, 36, 38, and 40 weeks.
+  - Monitor Blood Pressure, Weight, Urine Protein, and Hemoglobin regularly.
 3. 7 Maternal Danger Signs (Immediate Emergency Referral):
-   - Vaginal bleeding, severe headache, blurred vision, convulsions/fits, high fever, severe abdominal pain, or reduced fetal movement.
-   - Action: Go immediately to the nearest Upazila Health Complex (UHC) or District Hospital. Call 999 (Emergency) or 16263 (Shastho Batayon).
+  - Vaginal bleeding, severe headache, blurred vision, convulsions/fits, high fever, severe abdominal pain, or reduced fetal movement.
+  - Action: Go immediately to the nearest Upazila Health Complex (UHC) or District Hospital. Call 999 (Emergency) or 16263 (Shastho Batayon).
 4. Newborn Care & Bangladesh EPI:
-   - Initiate breastfeeding within 1 hour of birth; exclusive breastfeeding for 6 months.
-   - BCG & OPV-0 at birth; Pentavalent, PCV, OPV at 6, 10, 14 weeks; MR at 9 months.
+  - Initiate breastfeeding within 1 hour of birth; exclusive breastfeeding for 6 months.
+  - BCG & OPV-0 at birth; Pentavalent, PCV, OPV at 6, 10, 14 weeks; MR at 9 months.
 """
 
-def query_clinical_rag(user_query: str, language: str = "bn") -> dict:
-    api_key = os.getenv("GROQ_API_KEY")
+DANGER_KEYWORDS = [
+    "bleeding", "রক্তপাত", "রক্তক্ষরণ", "headache", "মাথাব্যথা", "মাথা ব্যথা",
+    "blurred", "ঝাপসা", "convulsion", "খিঁচুনি", "নড়াচড়া কম", "reduced fetal"
+]
 
-    # Groq LLM দিয়ে আসল Clinical RAG উত্তর
+def query_clinical_rag(user_query: str, language: str = "bn") -> dict:
+    q_lower = user_query.lower()
+    is_emergency = any(k in q_lower for k in DANGER_KEYWORDS)
+
+    # জরুরি লক্ষণ থাকলে LLM-এর অপেক্ষা না করে সরাসরি Emergency Bypass
+    if is_emergency:
+        ans = (
+            "🚨 জরুরি সতর্কতা: আপনার লক্ষণগুলো গর্ভাবস্থার বিপদচিহ্ন হতে পারে। দয়া করে দেরি না করে এখনই নিকটস্থ উপজেলা স্বাস্থ্য কমপ্লেক্স বা জেলা হাসপাতালের জরুরি বিভাগে যান। প্রয়োজনে ৯৯৯ বা ১৬২৬৩ নম্বরে কল করুন।"
+            if language == "bn"
+            else "🚨 EMERGENCY ALERT: Your symptoms indicate a potential maternal danger sign. Please go immediately to the nearest Upazila Health Complex or District Hospital, or call 999 / 16263."
+        )
+        return {
+            "answer": ans,
+            "citation": "WHO & DGHS Bangladesh Emergency Triage Protocol • Deterministic Override",
+            "emergency": True
+        }
+
+    api_key = os.getenv("GROQ_API_KEY")
     if api_key:
         try:
             client = Groq(api_key=api_key)
@@ -47,19 +65,21 @@ Verified Context:
             answer = chat_completion.choices[0].message.content.strip()
             return {
                 "answer": answer,
-                "source": "WHO ANC & DGHS Bangladesh Guidelines • Verified via Groq Clinical RAG"
+                "citation": "WHO ANC & DGHS Bangladesh Guidelines • Verified via Groq Clinical RAG",
+                "emergency": False
             }
         except Exception as e:
             print(f"Groq API error: {e}")
 
-    # Fallback (যদি কোনো কারণে API Key না থাকে)
-    q = user_query.lower()
-    if any(k in q for k in ["iron", "calcium", "আয়রন", "ক্যালসিয়াম", "ট্যাবলেট"]):
+    # Fallback
+    if any(k in q_lower for k in ["iron", "calcium", "আয়রন", "ক্যালসিয়াম", "ট্যাবলেট"]):
         return {
             "answer": "গর্ভাবস্থায় প্রতিদিন ১টি আয়রন-ফলিক অ্যাসিড (IFA) ও ১টি ক্যালসিয়াম ট্যাবলেট খাওয়া জরুরি। তবে দুটো একসাথে খাবেন না—কমপক্ষে ২ ঘণ্টা বিরতি দিন (যেমন: দুপুরে ক্যালসিয়াম ও রাতে আয়রন)।",
-            "source": "DGHS National Iron & Calcium Guideline • Verified"
+            "citation": "DGHS National Iron & Calcium Guideline • Verified",
+            "emergency": False
         }
     return {
         "answer": "আপনার প্রশ্নের জন্য ধন্যবাদ। নিয়মিত ANC চেকআপ করান, পুষ্টিকর খাবার খান এবং যেকোনো জরুরি লক্ষণে নিকটস্থ উপজেলা স্বাস্থ্য কমপ্লেক্সে যোগাযোগ করুন বা ১৬২৬৩ নম্বরে কল করুন।",
-        "source": "WHO & DGHS Bangladesh Maternal Care Protocol • Verified"
+        "citation": "WHO & DGHS Bangladesh Maternal Care Protocol • Verified",
+        "emergency": False
     }
