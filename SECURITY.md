@@ -1,4 +1,4 @@
-# Security & Clinical Safety Policy 🛡️
+# Security & Clinical Safety Policy 
 
 ## Supported Versions
 
