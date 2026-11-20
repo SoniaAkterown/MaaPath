@@ -175,7 +175,7 @@ MaaPath/
 
 ---
 
-## 🎮 Demo Walkthrough (For Collaborators & Judges)
+## 🎮 Demo Walkthrough 
 
 Test the end-to-end clinical workflow directly on [maapath.onrender.com](https://maapath.onrender.com):
 
