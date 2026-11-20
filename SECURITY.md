@@ -1,21 +1,36 @@
-# Security Policy
+# Security & Clinical Safety Policy 🛡️
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+The following versions of **MaaPath AI** are currently supported with security and clinical safety updates:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| 1.0.x   | :white_check_mark: |
+| < 1.0   | :x:                |
+
+---
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+We take security and patient data privacy seriously. If you discover a security vulnerability in **MaaPath AI**, please report it responsibly:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+1. **Do not** open a public GitHub issue for sensitive security vulnerabilities.
+2. Use GitHub's **Private Vulnerability Reporting** (under the **Security** tab → **Advisories** → **Report a vulnerability**) or contact the repository maintainers directly via GitHub.
+3. Include a clear description of the issue, steps to reproduce, and potential impact.
+
+We will acknowledge your report within **48 hours** and work to resolve verified issues promptly.
+
+---
+
+## Data Privacy & Secret Management
+
+- **Environment Variables:** Sensitive credentials (`GROQ_API_KEY`, `DATABASE_URL`) are strictly managed via `.env` files locally and encrypted Environment Variables on Render—never committed to source control.
+- **Patient Data:** Maternal health records stored in Supabase PostgreSQL are intended strictly for care coordination, ANC tracking, and emergency referrals with informed consent.
+
+---
+
+## Clinical Safety Guardrails 🩺
+
+- **Not a Medical Diagnosis Tool:** MaaPath AI provides WHO & DGHS Bangladesh-aligned educational guidance and triage support; it **never** diagnoses diseases or replaces a licensed physician.
+- **Deterministic Emergency Override:** The 7 critical maternal danger signs bypass LLM generation to immediately trigger hospital referral pathways and Bangladesh emergency helplines (**999** — National Emergency Service, **16263** — Shastho Batayon).
