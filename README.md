@@ -51,7 +51,8 @@
 
 **MaaPath AI** is not a standard pregnancy tracking app—it is an **AI-Powered Maternal & Newborn Care Coordination System** engineered for Bangladesh. It unites expectant mothers, community health workers (CHWs), and public healthcare facilities (**Upazila Health Complexes & District Hospitals**) through a **LangGraph Multi-Agent Architecture**, **Groq LLM (Llama 3.3 70B)** bilingual (**English & বাংলা**) Clinical RAG guidance, **real-time Bangla Voice (Speech-to-Text & Text-to-Speech)**, deterministic danger-sign triage, and automated ANC planning.
 
-> **Live Application:** [https://maapath.onrender.com](https://maapath.onrender.com)  
+> **Live Application:** [https://maapath.onrender.com](https://maapath.onrender.com)
+ 
 > **API Documentation:** [https://maapath.onrender.com/docs](https://maapath.onrender.com/docs)
 
 > ⚠️ **Crucial Medical Disclaimer:** MaaPath AI does **not** diagnose diseases and never replaces a licensed physician. It provides clinical alerts, educational guidance, and emergency hospital referral pathways strictly aligned with **WHO Antenatal Care (ANC) Guidelines** and **DGHS Bangladesh** maternal health protocols.
