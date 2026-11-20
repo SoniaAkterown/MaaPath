@@ -186,6 +186,21 @@
 3. **❤️ Continuity of Care:** Provides end-to-end maternal and newborn tracking from early pregnancy registration through delivery preparation and postnatal **Bangladesh EPI** vaccination follow-ups.
 
 ---
+---
+
+## 💡 Motivation: Why MaaPath AI Matters
+
+> **"No mother should lose her life simply because a warning sign went unrecognized or a hospital referral came too late."**
+
+In Bangladesh—particularly in rural and peri-urban areas—most preventable maternal and newborn fatalities stem from the **"Three Delays"**:
+1. **⏳ Delay in Recognizing Danger Signs:** Expectant mothers and families often miss early warning symptoms of life-threatening conditions like *Pre-eclampsia*, *Postpartum Hemorrhage*, or *Eclampsia*.
+2. **🗣️ Language & Literacy Barriers:** Standard English pregnancy apps are inaccessible to rural mothers who need immediate, empathetic guidance in **spoken Bangla**.
+3. **🏥 Disconnected Care Pathways:** Community Health Workers (CHWs), Upazila Health Complexes (UHCs), and District Hospitals often lack real-time coordination, causing critical delays during obstetric emergencies.
+
+**MaaPath AI** bridges this gap by combining **deterministic clinical safety**, **Bangla Voice AI**, and **multi-agent care coordination**—turning any smartphone into a 24/7 maternal safety navigator aligned with **WHO** and **DGHS Bangladesh** standards.
+<p align="center">
+  <img src="motivation.jpg" alt="Why MaaPath AI Matters" width="90%">
+</p>
 
 ## 🏗️ LangGraph Multi-Agent Architecture
 
