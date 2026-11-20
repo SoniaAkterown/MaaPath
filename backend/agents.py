@@ -55,7 +55,7 @@ def anc_planning_agent(state: MaaPathState) -> MaaPathState:
         schedule.append({
             "title": f"ANC Visit #{idx} (Week {wk})",
             "scheduled_date": visit_dt.strftime("%d %b %Y"),
-            "facility": "Savar Upazila Health Complex",
+            "location": "Savar Upazila Health Complex",
             "notes": "BP, Weight, Hemoglobin, Fetal Heart & Danger Sign Screening",
             "status": "completed" if wk < state.get("gestational_week", 1) else "upcoming"
         })
