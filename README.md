@@ -70,7 +70,7 @@
 </details>
 
 <details>
-  <summary><strong>2. Mother Dashboard & Registration (Intake Agent)</strong></summary>
+  <summary><strong>2. Mother Registration (Intake Agent)</strong></summary>
   <br>
   <p align="center">
     <img src="Screenshot 2026-11-20 184554.png" alt="Mother Dashboard" width="90%">
@@ -79,6 +79,14 @@
 
 <details>
   <summary><strong>3. Mother Dashboard</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 184740.png" alt="AI Assistant" width="90%">
+  </p>
+</details>
+
+<details>
+  <summary><strong>4. AI Assistant</strong></summary>
   <br>
   <p align="center">
     <img src="Screenshot 2026-11-20 184740.png" alt="AI Assistant" width="90%">
