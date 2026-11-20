@@ -58,11 +58,10 @@
 > ⚠️ **Crucial Medical Disclaimer:** MaaPath AI does **not** diagnose diseases and never replaces a licensed physician. It provides clinical alerts, educational guidance, and emergency hospital referral pathways strictly aligned with **WHO Antenatal Care (ANC) Guidelines** and **DGHS Bangladesh** maternal health protocols.
 
 ---
-
 ## 📸 Platform Screenshots
 
 <details open>
-  <summary><strong>1. Landing Page & Bilingual UI (EN / বাংলা)</strong></summary>
+  <summary><strong>🏠 Landing Page & Bilingual UI (EN / বাংলা)</strong></summary>
   <br>
   <p align="center">
     <img src="Screenshot 2026-11-20 184031.png" alt="Landing Page" width="90%">
@@ -70,26 +69,113 @@
 </details>
 
 <details>
-  <summary><strong>2. Mother Registration (Intake Agent)</strong></summary>
+  <summary><strong>📖 Pregnancy: Basic Guide & Instructions</strong></summary>
   <br>
   <p align="center">
-    <img src="Screenshot 2026-11-20 184554.png" alt="Mother Dashboard" width="90%">
+    <img src="Screenshot 2026-11-20 191958.png" alt="Basic Guide & Instructions" width="90%">
   </p>
 </details>
 
 <details>
-  <summary><strong>3. Mother Dashboard</strong></summary>
+  <summary><strong>1. Mother Dashboard</strong></summary>
   <br>
   <p align="center">
-    <img src="Screenshot 2026-11-20 184740.png" alt="AI Assistant" width="90%">
+    <img src="Screenshot 2026-11-20 184740.png" alt="Mother Dashboard" width="90%">
   </p>
 </details>
 
 <details>
-  <summary><strong>4. AI Assistant</strong></summary>
+  <summary><strong>2. Mother Registration</strong></summary>
   <br>
   <p align="center">
-    <img src="Screenshot 2026-11-20 184740.png" alt="AI Assistant" width="90%">
+    <img src="Screenshot 2026-11-20 192704.png" alt="Mother Registration" width="90%">
+  </p>
+</details>
+
+<details>
+  <summary><strong>3. Pregnancy Management</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 192822.png" alt="Pregnancy Management" width="90%">
+  </p>
+</details>
+
+<details>
+  <summary><strong>4. Health Monitoring</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 192907.png" alt="Health Monitoring" width="90%">
+  </p>
+</details>
+
+<details>
+  <summary><strong>5. Risk Assessment</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 193044.png" alt="Risk Assessment" width="90%">
+  </p>
+</details>
+
+<details>
+  <summary><strong>6. ANC Planning</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 193156.png" alt="ANC Planning" width="90%">
+  </p>
+</details>
+
+<details>
+  <summary><strong>7. AI Assistant (Bangla Voice & Clinical RAG)</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 190505.png" alt="AI Assistant" width="90%">
+  </p>
+</details>
+
+<details>
+  <summary><strong>8. Smart Hospital Referral</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 193323.png" alt="Smart Hospital Referral" width="90%">
+  </p>
+</details>
+
+<details>
+  <summary><strong>9. Newborn Care</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 193430.png" alt="Newborn Care" width="90%">
+  </p>
+</details>
+
+<details>
+  <summary><strong>10. Health Worker Dashboard</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 193535.png" alt="Health Worker Dashboard" width="90%">
+  </p>
+</details>
+
+<details>
+  <summary><strong>12. AI Agent Monitoring</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 193824.png" alt="AI Agent Monitoring" width="90%">
+  </p>
+</details>
+
+<details>
+  <summary><strong>13. Notification Center</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 193933.png" alt="Notification Center" width="90%">
+  </p>
+</details>
+<details>
+  <summary><strong>🚨 Emergency SOS Modal (999 & 16263)</strong></summary>
+  <br>
+  <p align="center">
+    <img src="Screenshot 2026-11-20 194048.png" alt="Emergency SOS Modal" width="90%">
   </p>
 </details>
 
